@@ -1,0 +1,201 @@
+/* Custom styles for Auth Screens Grid Component */
+
+/* Override Tailwind for specific component needs */
+.auth-screen-card {
+  @apply bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto w-full;
+  transition: all 0.3s ease;
+  min-height: 500px;
+}
+
+.auth-screen-card:hover {
+  @apply shadow-xl;
+  transform: translateY(-2px);
+}
+
+.auth-icon {
+  @apply w-12 h-12 bg-blue-600 rounded-lg mx-auto mb-4 flex items-center justify-center;
+  background: linear-gradient(135deg, #0f5de2 0%, #1e40af 100%);
+}
+
+.auth-title {
+  @apply text-xl font-semibold text-gray-900;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.auth-subtitle {
+  @apply text-sm text-gray-600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.auth-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.2s ease;
+}
+
+.auth-input:focus {
+  box-shadow: 0 0 0 3px rgba(15, 93, 226, 0.1);
+}
+
+.auth-input.error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.auth-button {
+  @apply w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-medium;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #0f5de2 0%, #1e40af 100%);
+}
+
+.auth-button:hover {
+  background: linear-gradient(135deg, #0d52cc 0%, #1e3a8a 100%);
+  transform: translateY(-1px);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+.auth-button:disabled {
+  @apply bg-gray-400 cursor-not-allowed;
+  background: #9ca3af;
+  transform: none;
+}
+
+.auth-label {
+  @apply block text-sm font-medium text-gray-700;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.auth-link {
+  @apply text-blue-600 hover:text-blue-500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+.auth-checkbox {
+  @apply rounded border-gray-300 text-blue-600 focus:ring-blue-500;
+}
+
+.auth-error {
+  @apply text-red-500 text-xs mt-1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.auth-success {
+  @apply text-green-500 text-xs mt-1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.password-requirements {
+  @apply flex items-center justify-between text-xs text-gray-500 mt-2;
+}
+
+.password-requirement {
+  @apply flex items-center;
+}
+
+.password-requirement.valid {
+  @apply text-green-500;
+}
+
+.password-requirement.invalid {
+  @apply text-red-500;
+}
+
+/* Grid animations */
+.auth-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8;
+}
+
+.auth-grid > div {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.auth-grid > div:nth-child(1) { animation-delay: 0.1s; }
+.auth-grid > div:nth-child(2) { animation-delay: 0.2s; }
+.auth-grid > div:nth-child(3) { animation-delay: 0.3s; }
+.auth-grid > div:nth-child(4) { animation-delay: 0.4s; }
+.auth-grid > div:nth-child(5) { animation-delay: 0.5s; }
+.auth-grid > div:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .auth-screen-card {
+    @apply p-6;
+    min-height: auto;
+  }
+  
+  .auth-grid {
+    @apply gap-6;
+  }
+}
+
+/* Loading state */
+.auth-loading {
+  @apply relative overflow-hidden;
+}
+
+.auth-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Focus improvements for accessibility */
+.auth-input:focus,
+.auth-button:focus,
+.auth-checkbox:focus,
+.auth-link:focus {
+  outline: 2px solid #0f5de2;
+  outline-offset: 2px;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  .auth-screen-card {
+    @apply bg-gray-800 text-white;
+  }
+  
+  .auth-title {
+    @apply text-white;
+  }
+  
+  .auth-subtitle {
+    @apply text-gray-300;
+  }
+  
+  .auth-input {
+    @apply bg-gray-700 border-gray-600 text-white;
+  }
+  
+  .auth-label {
+    @apply text-gray-300;
+  }
+} 
