@@ -50,7 +50,7 @@ function PostItem({ author, time, content, images, description }: any) {
       <div className="flex items-center gap-3 mb-4">
         <div className="w-12 h-12 rounded-full bg-[#05CD99] flex items-center justify-center flex-shrink-0">
           <span className="text-white font-bold text-lg">TC</span>
-        </div>
+            </div>
         <div className="flex-1 min-w-0">
           <div className="text-[#1B2559] text-lg font-bold leading-7">{author}</div>
           <div className="text-[#A3AED0] text-sm font-medium leading-6">{time}</div>
@@ -84,8 +84,8 @@ function PostItem({ author, time, content, images, description }: any) {
       {/* Post Description */}
       <div className="text-[#1B2559] text-sm font-medium leading-6 mb-4 break-words">
         {description}
-      </div>
-    </div>
+                      </div>
+                    </div>
   );
 }
 
